@@ -1,20 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import useState from '../../hooks/useState';
+import One from '../Layout/One';
+import Three from '../Layout/Three';
+import Two from '../Layout/Two';
 import s from './SignalState.module.scss';
-import { effect } from '@preact/signals';
 
 const SignalState = () => {
-  const { first } = useState();
-
-  effect(() => {
-    first.value === 0 && first.counter.run();
-    first.value === 5 && first.counter.stop();
-  });
-
-  console.log('---->', first.value);
+  console.log('start');
+  console.log('');
 
   return (
-    <div className={s.signalState}>{import.meta.env.VITE_PROJECT_TITLE}</div>
+    <div className={s.signalState}>
+      <div>{import.meta.env.VITE_PROJECT_TITLE}</div>
+
+      <div>
+        <One />
+        <Two />
+        <Three />
+      </div>
+    </div>
   );
 };
 
