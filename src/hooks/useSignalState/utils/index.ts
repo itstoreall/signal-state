@@ -1,19 +1,35 @@
-import { Signal } from '@preact/signals';
+import handleFirstState from '../states/first';
+import handleSecondState from '../states/second';
+import { Sig, Val } from '../types';
 import config from '../config';
-import setFirstState from '../states/first';
 
-export const stateHandler = (state: string) => {
-  const { first } = config.states;
+const sts = config.states;
 
-  switch (state) {
-    case first:
-      return setFirstState();
+// ------- Main handler:
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type StateHandler = (stateLabel: string) => any;
+
+export const stateHandler: StateHandler = stateLabel => {
+  switch (stateLabel) {
+    case sts.first.lab:
+      return handleFirstState();
+
+    case sts.second.lab:
+      return handleSecondState();
 
     default:
       break;
   }
 };
 
-export const updateState = (value: number, state: Signal) => {
-  state.value = value;
-};
+// ------- setState():
+
+export const updateState = (value: Val, sig: Sig) => (sig.value = value);
+
+// ------- useState():
+
+export const setBacicFns = (sig: Sig) => ({
+  val: sig.value,
+  set: (val: Val) => updateState(val, sig)
+});

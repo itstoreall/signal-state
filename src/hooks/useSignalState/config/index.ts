@@ -1,5 +1,5 @@
 const config = {
-  states: { first: 'first' }
+  states: { first: { lab: 'first' }, second: { lab: 'second' } }
 };
 
 export default config;

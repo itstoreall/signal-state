@@ -1,19 +1,14 @@
-import { signal } from '@preact/signals';
-import * as utils from '../../utils';
+import { setBacicFns } from '../../utils';
+import * as utils from './utils';
+import { firstSignal } from '..';
 
-const firstSignal = signal(0);
+const handleFirstState = () => ({
+  ...setBacicFns(firstSignal),
 
-const counter = setInterval(() => {
-  firstSignal.value = firstSignal.value + 1;
-}, 1000);
-
-const setFirstState = () => ({
-  value: firstSignal.value,
-  update: (val: number) => utils.updateState(val, firstSignal),
   counter: {
-    run: () => counter,
-    stop: () => clearInterval(counter)
+    run: () => utils.counter,
+    stop: () => clearInterval(utils.counter)
   }
 });
 
-export default setFirstState;
+export default handleFirstState;
