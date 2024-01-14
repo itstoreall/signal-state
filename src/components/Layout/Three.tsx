@@ -1,5 +1,5 @@
 const Three = () => {
-  console.log('Three');
+  console.log(3, 'Three');
 
   return <div>Three</div>;
 };

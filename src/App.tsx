@@ -1,16 +1,11 @@
-import SignalState from './components/SignalState';
+import { GlobalContext } from './signalState/context/GlobalContext';
+import stateContext from './signalState';
+import Layout from './components/Layout';
 
 const App = () => (
-  <div
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: '100vh'
-    }}
-  >
-    <SignalState />
-  </div>
+  <GlobalContext.Provider value={stateContext}>
+    <Layout />
+  </GlobalContext.Provider>
 );
 
 export default App;

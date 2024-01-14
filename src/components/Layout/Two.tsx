@@ -1,11 +1,18 @@
-import useSignalState from '../../hooks/useSignalState';
+import { effect } from '@preact/signals';
+import { useGlobalContext } from '../../hooks/useGlobalContext';
 
 const Two = () => {
-  console.log('Two');
+  console.log(2, 'Two');
 
-  const { second } = useSignalState();
+  const { first, second } = useGlobalContext();
 
-  console.log('Two | second:', second.val);
+  effect(() => {
+    if (first.get() !== 5) return;
+
+    // first.set(999);
+
+    console.log('Two second:', second.get());
+  });
 
   return <div>Two</div>;
 };

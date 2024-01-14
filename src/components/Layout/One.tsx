@@ -1,24 +1,20 @@
-import { effect } from '@preact/signals';
-import useSignalState from '../../hooks/useSignalState';
+import { useEffect } from 'react';
+import { useGlobalContext } from '../../hooks/useGlobalContext';
 
 const One = () => {
-  const { first } = useSignalState();
+  const { first } = useGlobalContext();
 
-  const { val, set, counter } = first;
+  console.log(1, 'One');
 
-  const reset = () => {
-    counter.stop();
-    set(999);
-  };
+  useEffect(() => {
+    first.counter.run();
+  }, [first.counter]);
 
-  effect(() => {
-    val === 0 && counter.run();
-    val === 4 && reset();
-  });
+  first.get() === 5 && first.counter.stop();
 
-  console.log('One');
+  console.log('One first', first.get());
 
-  return <div>{`One: ${val}`}</div>;
+  return <div>{`One, ${first.get()}`}</div>;
 };
 
 export default One;
