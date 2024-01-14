@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useGlobalContext } from '../../hooks/useGlobalContext';
+import { useGlobalContext } from '../hooks/useGlobalContext';
 
 const One = () => {
   const { first } = useGlobalContext();
@@ -14,7 +14,7 @@ const One = () => {
 
   console.log('One first', first.get());
 
-  return <div>{`One, ${first.get()}`}</div>;
+  return <div>{`One: ${first.get()}`}</div>;
 };
 
 export default One;

@@ -1,6 +1,6 @@
-import One from './One';
-import Two from './Two';
-import Three from './Three';
+import One from '../One';
+import Two from '../Two';
+import Three from '../Three';
 import s from './Layout.module.scss';
 
 const Layout = () => {

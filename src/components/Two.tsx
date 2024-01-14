@@ -1,5 +1,5 @@
 import { effect } from '@preact/signals';
-import { useGlobalContext } from '../../hooks/useGlobalContext';
+import { useGlobalContext } from '../hooks/useGlobalContext';
 
 const Two = () => {
   console.log(2, 'Two');
@@ -9,12 +9,12 @@ const Two = () => {
   effect(() => {
     if (first.get() !== 5) return;
 
-    // first.set(999);
-
-    console.log('Two second:', second.get());
+    second.set('Done!!!', 2000);
   });
 
-  return <div>Two</div>;
+  console.log('Two second:', second.get());
+
+  return <div>{`Two: ${second.get()}`}</div>;
 };
 
 export default Two;
