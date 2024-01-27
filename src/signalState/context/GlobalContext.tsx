@@ -1,10 +1,10 @@
 import { createContext } from 'react';
 import { Context } from '../types';
 
-const initGet = () => 0;
+const initGet = () => '';
 const initSet = () => console.log();
 const initStore = true;
 
 export const GlobalContext = createContext<Context>({
-  first: { get: initGet, set: initSet, isStore: initStore }
+  key: { get: initGet, set: initSet, isStore: initStore }
 });

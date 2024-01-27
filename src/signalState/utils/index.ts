@@ -1,5 +1,5 @@
 import { signal } from '@preact/signals';
-import { BasicRecord, Config, SetState } from '../types';
+import { BasicRecord, Config, SetState, Val } from '../types';
 import * as stateConfigs from '../states';
 
 // ------- States:
@@ -22,12 +22,10 @@ export const setBasic = () =>
     const basicState = {
       [config.key]: {
         get: () => sig.value.val,
-        set: (val: number | string, dly: number) => setState(sig, val, dly),
+        set: (val: Val, dly: number) => setState(sig, val, dly),
         isStore: sig.value.isStore
       }
     };
-
-    console.log('basicState', basicState);
 
     return { ...acc, ...basicState };
   }, {});

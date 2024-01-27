@@ -10,5 +10,16 @@ export const second = {
 
 export const third = {
   key: 'third',
+  state: { val: { name: '' }, isStore: true }
+};
+
+/* 
+
+Add new state config here:
+
+export const stateName = {
+  key: 'stateName',
   state: { val: 0, isStore: true }
 };
+
+*/

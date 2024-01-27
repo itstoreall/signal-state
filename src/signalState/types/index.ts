@@ -1,6 +1,6 @@
 import { Signal } from '@preact/signals';
 
-export type Val = number | string;
+export type Val = number | string | Record<string, string>;
 export type State = { val: Val; isStore: boolean };
 export type Config = { key: string; state: State };
 

@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// import { effect } from '@preact/signals';
 import { useEffect } from 'react';
 import { useGlobalContext } from '../hooks/useGlobalContext';
 

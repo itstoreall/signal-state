@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { useGlobalContext } from '../hooks/useGlobalContext';
+import * as types from '../signalState/states/types';
 
 const Three = () => {
   const { third } = useGlobalContext();
@@ -8,10 +9,12 @@ const Three = () => {
   console.log(3, 'Three');
 
   useEffect(() => {
-    third.set(3, 3);
+    third.set({ name: 'Serhii' }, 3);
   }, []);
 
-  return <div>{`Three: ${third.get()}`}</div>;
+  const { name } = third.get() as types.Third;
+
+  return <div>{`Three: ${name}`}</div>;
 };
 
 export default Three;
