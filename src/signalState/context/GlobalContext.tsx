@@ -1,10 +1,10 @@
 import { createContext } from 'react';
 import { Context } from '../types';
 
-const basic = { get: () => 0 || '', set: () => console.log() };
-const counter = { run: () => 0, stop: () => console.log() };
+const initGet = () => '';
+const initSet = () => console.log();
+const initStore = true;
 
 export const GlobalContext = createContext<Context>({
-  first: { ...basic, counter: counter },
-  second: { ...basic }
+  key: { get: initGet, set: initSet, isStore: initStore }
 });

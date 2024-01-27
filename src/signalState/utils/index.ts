@@ -1,18 +1,31 @@
-import { Sig, SetState, Val } from '../types';
+import { signal } from '@preact/signals';
+import { BasicRecord, Config, SetState, Val } from '../types';
+import * as stateConfigs from '../states';
+
+// ------- States:
+
+const states = Object.values({ ...stateConfigs });
 
 // ------- setState():
 
-export const updateState: SetState = (sig, val, dly = 0) => {
-  if (!dly) return (sig.value = val);
-  setTimeout(() => {
-    sig.value = val;
-  }, dly);
+export const setState: SetState = (sig, val, dly) => {
+  const update = () => (sig.value = { ...sig.value, val });
+  dly ? setTimeout(() => update(), Number(`${dly}000`)) : update();
 };
 
 // ------- useState():
 
-export const setBacicFns = <E>(sig: Sig, extra: E) => ({
-  get: () => sig.value,
-  set: (val: Val, dly?: number) => updateState(sig, val, dly),
-  ...extra
-});
+export const setBasic = () =>
+  states.reduce((acc: BasicRecord, config: Config) => {
+    const sig = signal(config.state);
+
+    const basicState = {
+      [config.key]: {
+        get: () => sig.value.val,
+        set: (val: Val, dly: number) => setState(sig, val, dly),
+        isStore: sig.value.isStore
+      }
+    };
+
+    return { ...acc, ...basicState };
+  }, {});

@@ -1,9 +1,7 @@
-import first from './states/first';
-import second from './states/secont';
+import { setBasic } from './utils';
 
 const stateContext = {
-  first: first(),
-  second: second()
+  ...setBasic()
 };
 
 export default stateContext;
@@ -12,12 +10,23 @@ export default stateContext;
 
 How to use:
 
-1. Add a new signal (nameSignal) to the signals/index.ts
-2. Create a new file (stateName.ts) in the states foulder
-3. Add a basic fn to the stateName.ts: const stateName = () => ({ ...setBacicFns(nameSignal, {}) });
-4. Add the stateName to the stateContext
-5. Add a type field to the GlobalContent
+1. Add a new state config in the states/index.ts
+2. Add a new type of the state in the states/types.ts
+
+--- primitive values:
 
 const { stateName } = useGlobalContext();
+
+stateName.get()
+stateName.set(value, delay)
+stateName.isStore
+
+--- value is an object:
+
+import * as types from '../signalState/states/types';
+
+stateName.get() as types.StateName
+
+---
 
 */
