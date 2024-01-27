@@ -1,33 +1,23 @@
 import { Signal } from '@preact/signals';
 
-export type Sig = Signal<Val>;
+export type FirstState = { val: number; isStore: boolean };
 
-// ------- General:
+// ------ Basic:
 
-export type Val = number | string;
-export type Dly = number;
+export type Get = () => number;
+export type Set = (get: number, dly: number) => void;
+export type IsStore = boolean;
 
-export type FnVal = () => Val;
-export type FnVoid = () => void;
-export type FnValVoid = (val: Val) => void;
+// ------ utils:
 
-// ------- Basic:
+export type SetState = (
+  sig: Signal<FirstState>,
+  val: number,
+  dly: number
+) => void;
 
-export type Get = FnVal;
-export type Set = (val: Val, dly?: Dly) => void;
-export type SetNum = (val: number, dly?: Dly) => void;
-export type SetStr = (val: string, dly?: Dly) => void;
-
-export type Basic<T, U> = { get: T; set: U };
-export type SetState = (sig: Sig, val: Val, dly?: Dly) => void;
-
-// ------- Extra:
-
-export type Counter = { counter: { run: FnVal; stop: FnVoid } };
-
-// ------- Context:
+// ------ Context:
 
 export type Context = {
-  first: Basic<FnVal, SetNum> & Counter;
-  second: Basic<FnVal, (val: string, dly?: Dly) => void>;
+  first: { get: Get; set: Set; isStore: IsStore };
 };

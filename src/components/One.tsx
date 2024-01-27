@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { useGlobalContext } from '../hooks/useGlobalContext';
 
@@ -7,12 +8,8 @@ const One = () => {
   console.log(1, 'One');
 
   useEffect(() => {
-    first.counter.run();
-  }, [first.counter]);
-
-  first.get() === 5 && first.counter.stop();
-
-  console.log('One first', first.get());
+    first.set(3, 3);
+  }, []);
 
   return <div>{`One: ${first.get()}`}</div>;
 };

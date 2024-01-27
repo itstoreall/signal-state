@@ -1,9 +1,8 @@
-import first from './states/first';
-import second from './states/secont';
+import { firstSignal } from './signals';
+import { setBasic } from './utils';
 
 const stateContext = {
-  first: first(),
-  second: second()
+  first: setBasic(firstSignal)
 };
 
 export default stateContext;

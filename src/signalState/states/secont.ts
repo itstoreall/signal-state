@@ -1,6 +1,7 @@
-import { secondSignal } from '../signals';
-import { setBacicFns } from '../utils';
+// import { secondSignal } from '../signals';
+// import { setBacicFns } from '../utils';
 
-const second = () => ({ ...setBacicFns(secondSignal, {}) });
+// const second = () => ({ ...setBacicFns(secondSignal, {}) });
 
-export default second;
+// export default second;
+export default {};

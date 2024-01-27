@@ -1,4 +1,10 @@
 import { signal } from '@preact/signals';
+import { FirstState } from '../types';
 
-export const firstSignal = signal<number>(0);
-export const secondSignal = signal<string>('');
+const firstState = { val: 0, isStore: true };
+
+const createState = () => {
+  return signal<FirstState>(firstState);
+};
+
+export const firstSignal = createState();
