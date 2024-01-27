@@ -9,7 +9,7 @@ const Two = () => {
   console.log(2, 'Two');
 
   useEffect(() => {
-    second.set(2, 2);
+    second.set('Hello', 2);
   }, []);
 
   return <div>{`Two: ${second.get()}`}</div>;

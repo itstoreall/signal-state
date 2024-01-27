@@ -22,12 +22,12 @@ export const setBasic = () =>
     const basicState = {
       [config.key]: {
         get: () => sig.value.val,
-        set: (val: number, dly: number) => setState(sig, val, dly),
+        set: (val: number | string, dly: number) => setState(sig, val, dly),
         isStore: sig.value.isStore
       }
     };
 
     console.log('basicState', basicState);
 
-    return (acc = { ...acc, ...basicState });
+    return { ...acc, ...basicState };
   }, {});

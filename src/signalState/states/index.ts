@@ -5,7 +5,7 @@ export const first = {
 
 export const second = {
   key: 'second',
-  state: { val: 0, isStore: true }
+  state: { val: '', isStore: true }
 };
 
 export const third = {
