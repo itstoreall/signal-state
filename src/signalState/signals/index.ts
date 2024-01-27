@@ -1,10 +1,8 @@
 import { signal } from '@preact/signals';
 import { FirstState } from '../types';
 
-const firstState = { val: 0, isStore: true };
+// const firstState = { val: 0, isStore: true };
 
-const createState = () => {
-  return signal<FirstState>(firstState);
-};
+// const createState = (state: FirstState) => signal<FirstState>(state);
 
-export const firstSignal = createState();
+export const firstSignal = (state: FirstState) => signal<FirstState>(state);

@@ -16,8 +16,18 @@ export type SetState = (
   dly: number
 ) => void;
 
+// ------ Config:
+
+export type Config = { key: string; state: FirstState };
+
+// ------ State:
+
+export type BasicRecord = Record<string | number, State>;
+
+export type State = { get: Get; set: Set; isStore: IsStore };
+
 // ------ Context:
 
 export type Context = {
-  first: { get: Get; set: Set; isStore: IsStore };
+  [key: string]: State;
 };

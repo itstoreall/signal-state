@@ -1,10 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import { effect } from '@preact/signals';
-// import { useGlobalContext } from '../hooks/useGlobalContext';
+import { useEffect } from 'react';
+import { useGlobalContext } from '../hooks/useGlobalContext';
 
 const Two = () => {
+  const { second } = useGlobalContext();
+
   console.log(2, 'Two');
 
-  return <div>{`Two: `}</div>;
+  useEffect(() => {
+    second.set(2, 2);
+  }, []);
+
+  return <div>{`Two: ${second.get()}`}</div>;
 };
 
 export default Two;

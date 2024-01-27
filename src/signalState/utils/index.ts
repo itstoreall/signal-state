@@ -1,5 +1,10 @@
-import { Signal } from '@preact/signals';
-import { FirstState, SetState } from '../types';
+import { signal } from '@preact/signals';
+import { BasicRecord, Config, SetState } from '../types';
+import * as stateConfigs from '../states';
+
+// ------- States:
+
+const states = Object.values({ ...stateConfigs });
 
 // ------- setState():
 
@@ -10,8 +15,19 @@ export const setState: SetState = (sig, val, dly) => {
 
 // ------- useState():
 
-export const setBasic = (sig: Signal<FirstState>) => ({
-  get: () => sig.value.val,
-  set: (val: number, dly: number) => setState(sig, val, dly),
-  isStore: sig.value.isStore
-});
+export const setBasic = () =>
+  states.reduce((acc: BasicRecord, config: Config) => {
+    const sig = signal(config.state);
+
+    const basicState = {
+      [config.key]: {
+        get: () => sig.value.val,
+        set: (val: number, dly: number) => setState(sig, val, dly),
+        isStore: sig.value.isStore
+      }
+    };
+
+    console.log('basicState', basicState);
+
+    return (acc = { ...acc, ...basicState });
+  }, {});

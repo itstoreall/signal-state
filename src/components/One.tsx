@@ -8,7 +8,7 @@ const One = () => {
   console.log(1, 'One');
 
   useEffect(() => {
-    first.set(3, 3);
+    first.set(1, 1);
   }, []);
 
   return <div>{`One: ${first.get()}`}</div>;
