@@ -1,20 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
-import { useGlobalContext } from '../signalState/hooks/useGlobalContext';
 import * as types from '../signalState/states/types';
+import state from '../signalState';
 
 const Three = () => {
-  const { third } = useGlobalContext();
+  const thirdVal = state.third.get() as types.Third;
 
-  console.log(3, 'Three');
+  console.log(3, 'Three', state.third.get());
 
   useEffect(() => {
-    third.set({ name: 'Serhii' }, 3);
+    state.third.set({ name: 'Serhii' }, 3);
   }, []);
 
-  const { name } = third.get() as types.Third;
-
-  return <div>{`Three: ${name}`}</div>;
+  return <div>{`Three: ${thirdVal.name}`}</div>;
 };
 
 export default Three;

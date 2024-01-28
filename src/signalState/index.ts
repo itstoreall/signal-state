@@ -16,17 +16,19 @@ How to use:
 
 --- primitive values:
 
-const { stateName } = useGlobalContext();
+import state from '../signalState';
 
-stateName.get()
-stateName.set(value, delay)
-stateName.isStore
+const stateNameValue = state.stateName.get();
+state.stateName.set(value, delay)
+state.stateName.isStore
 
 --- value is an object:
 
 import * as types from '../signalState/states/types';
 
-stateName.get() as types.StateName
+const stateNameValue = state.third.get() as types.StateName;
+
+return <div>{`Name: ${stateNameValue.name}`}</div>;
 
 ---
 

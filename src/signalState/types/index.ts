@@ -13,10 +13,6 @@ export type Config = { key: string; state: State };
 export type Get = () => Val;
 export type Set = (val: Val, dly: number) => void;
 export type IsStore = boolean;
-
-// ------ Context:
-
-export type Context = { [key: string]: StateFunctions };
 export type StateFunctions = { get: Get; set: Set; isStore: IsStore };
 export type BasicRecord = Record<string, StateFunctions>;
 
