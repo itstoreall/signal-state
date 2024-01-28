@@ -2,6 +2,7 @@ import useLSBeforeUnload from '../../hooks/useLSBeforeUnload';
 import One from '../One';
 import Two from '../Two';
 import Three from '../Three';
+import Fourth from '../Fourth';
 import s from './Layout.module.scss';
 
 const Layout = () => {
@@ -19,6 +20,7 @@ const Layout = () => {
           <One />
           <Two />
           <Three />
+          <Fourth />
         </div>
       </div>
     </div>

@@ -1,6 +1,10 @@
 import { Signal } from '@preact/signals';
+import * as t from '../states/types';
 
-export type Val = number | string | Record<string, string>;
+export type Val = number | string | number[] | string[] | null | t.UnionTypes;
+
+// ------ State:
+
 export type State = { val: Val; isStore: boolean };
 export type Config = { key: string; state: State };
 

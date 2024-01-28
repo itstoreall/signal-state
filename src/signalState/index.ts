@@ -12,6 +12,7 @@ How to use:
 
 1. Add a new state config in the states/index.ts
 2. Add a new type of the state in the states/types.ts
+2. Add this new type to the Val in the types/index.ts
 
 --- primitive values:
 
