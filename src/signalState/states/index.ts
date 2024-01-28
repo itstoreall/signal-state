@@ -13,6 +13,11 @@ export const third = {
   state: { val: { name: '' }, isStore: true }
 };
 
+export const fourth = {
+  key: 'fourth',
+  state: { val: { age: null, user: null }, isStore: true }
+};
+
 /* 
 
 Add new state config here:
