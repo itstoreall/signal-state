@@ -1,17 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
-import { useGlobalContext } from '../signalState/hooks/useGlobalContext';
+import state from '../signalState';
 
 const Two = () => {
-  const { second } = useGlobalContext();
-
-  console.log(2, 'Two');
+  console.log(2, 'Two', state.second.get());
 
   useEffect(() => {
-    second.set('Hello', 2);
+    state.second.set('Hello', 2);
   }, []);
 
-  return <div>{`Two: ${second.get()}`}</div>;
+  return <div>{`Two: ${state.second.get()}`}</div>;
 };
 
 export default Two;
