@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
-import { useGlobalContext } from '../hooks/useGlobalContext';
+import { useGlobalContext } from '../signalState/hooks/useGlobalContext';
 import * as types from '../signalState/states/types';
 
 const Fourth = () => {

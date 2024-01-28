@@ -29,3 +29,27 @@ export const setBasic = () =>
 
     return { ...acc, ...basicState };
   }, {});
+
+// ------- localStorage:
+
+const stateLSLabel = 'signal_state';
+const data = 'localStorage data';
+
+const _ls = localStorage;
+const get = () => _ls.getItem(stateLSLabel);
+const set = () => _ls.setItem(stateLSLabel, data);
+const del = () => _ls.removeItem(stateLSLabel);
+
+export const ls = {
+  getLSData: get,
+  setLSData: set,
+  removeLSData: del
+};
+
+// ------- Window:
+
+export const addBeforeUnload = (cb: () => void) =>
+  window.addEventListener('beforeunload', cb);
+
+export const removeBeforeUnload = (cb: () => void) =>
+  window.removeEventListener('beforeunload', cb);

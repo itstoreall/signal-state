@@ -1,4 +1,4 @@
 import { useContext } from 'react';
-import { GlobalContext } from '../signalState/context/GlobalContext';
+import { GlobalContext } from '../context/GlobalContext';
 
 export const useGlobalContext = () => useContext(GlobalContext);

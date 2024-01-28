@@ -1,4 +1,4 @@
-import useLSBeforeUnload from '../../hooks/useLSBeforeUnload';
+import useLSBeforeUnload from '../../signalState/hooks/useLSBeforeUnload';
 import One from '../One';
 import Two from '../Two';
 import Three from '../Three';
